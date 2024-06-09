@@ -9,8 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
       - name: Remove .extraheader
         run: git config --unset-all http.https://github.com/.extraheader
