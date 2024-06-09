@@ -1,4 +1,3 @@
-
 name: CI
 on:
   push:
@@ -10,8 +9,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
-      #used to cache dependencies with a timeout
+      - name: Remove .extraheader
+        run: git config --unset-all http.https://github.com/.extraheader
+
       - name: Get Date
         id: get-date
         run: |
